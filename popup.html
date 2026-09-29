@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>ImgScout</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <main class="app">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="brand">
+        <div class="brand-icon" aria-hidden="true">
+          ◈
+        </div>
+
+        <div>
+          <h1>ImgScout</h1>
+          <p>Find images on this page</p>
+        </div>
+      </div>
+
+      <span class="version">1.0</span>
+    </header>
+
+
+    <!-- Controls -->
+    <section class="controls" aria-label="Image filters">
+
+      <div class="field">
+        <label for="format">Format</label>
+
+        <select id="format">
+          <option value="all">
+            All supported formats
+          </option>
+
+          <option value=".jpg">
+            JPG / JPEG
+          </option>
+
+          <option value=".png">
+            PNG
+          </option>
+
+          <option value=".webp">
+            WEBP
+          </option>
+
+          <option value=".gif">
+            GIF
+            
+            <option value=".webm">WEBM</option>
+          </option>
+        </select>
+      </div>
+
+
+      <div class="field">
+        <label for="limit">
+          Maximum images
+        </label>
+
+        <input
+          type="number"
+          id="limit"
+          value="0"
+          min="0"
+          inputmode="numeric"
+          placeholder="0 = unlimited"
+        >
+      </div>
+
+
+      <div class="field">
+        <label for="filter">
+          URL filter
+          <span>Optional</span>
+        </label>
+
+        <input
+          type="text"
+          id="filter"
+          placeholder="e.g. thumbnail, hero..."
+          autocomplete="off"
+          spellcheck="false"
+        >
+      </div>
+
+    </section>
+
+
+    <!-- Main action -->
+    <button
+      id="downloadBtn"
+      class="primary-button"
+      type="button"
+    >
+      <span class="button-icon" aria-hidden="true">⌕</span>
+      <span>Scout Images</span>
+    </button>
+
+
+    <!-- Status -->
+    <section
+      id="status"
+      class="status"
+      aria-live="polite"
+    >
+      <div class="status-icon" aria-hidden="true">
+        ◈
+      </div>
+
+      <div>
+        <strong>Ready to scout</strong>
+        <p>Find images from the current page.</p>
+      </div>
+    </section>
+
+
+    <!-- Results -->
+    <section
+      id="results"
+      class="results hidden"
+      aria-label="Image results"
+    >
+
+      <div class="results-header">
+        <div>
+          <strong id="resultCount">0 images</strong>
+          <span>found</span>
+        </div>
+
+        <button
+          id="downloadLinksBtn"
+          class="secondary-button"
+          type="button"
+        >
+          Export links
+        </button>
+      </div>
+
+      <div
+        id="imageGrid"
+        class="image-grid"
+      ></div>
+
+    </section>
+
+
+    <!-- Empty state -->
+    <section
+      id="emptyState"
+      class="empty-state hidden"
+    >
+      <div class="empty-icon" aria-hidden="true">
+        ◌
+      </div>
+
+      <h2>No images found</h2>
+
+      <p>
+        ImgScout couldn't find any images
+        matching your current filters.
+      </p>
+
+      <button
+        id="retryBtn"
+        class="secondary-button"
+        type="button"
+      >
+        Try again
+      </button>
+    </section>
+
+
+    <footer class="footer">
+      <span>ImgScout</span>
+      <span>•</span>
+      <span>Fast image discovery</span>
+    </footer>
+
+  </main>
+
+  <script src="popup.js"></script>
+
+</body>
+</html>
